@@ -21,3 +21,6 @@ metadata:
       [crossplane-contrib/provider-helm](https://github.com/crossplane-contrib/provider-helm)
       repo.
     friendly-name.meta.crossplane.io: Provider Helm
+spec:
+  controller:
+    image: sdlc.yapikredi.com.tr/tech-docker/crossplane/provider-helm-controller@sha256:85acd6348b4a2d8928e447c5031cbee090b5de6935df0f618a67da39f7657d91
