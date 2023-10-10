@@ -98,6 +98,12 @@ jobs:
           username: ${{ secrets.CONTRIB_DOCKER_USR }}
           password: ${{ secrets.CONTRIB_DOCKER_PSW }}
 
+      - name: Publish Artifacts to S3 and Docker Hub
+        run: make -j2 publish BRANCH_NAME=${GITHUB_REF##*/}
+        if: env.CONTRIB_DOCKER_USR != ''
+        env:
+          GIT_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Promote Artifacts in S3 and Docker Hub
         run: make -j2 promote
         env:
